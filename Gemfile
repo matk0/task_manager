@@ -41,3 +41,5 @@ group :development, :test do
 end
 
 
+
+gem "graphql", "~> 2.4"
