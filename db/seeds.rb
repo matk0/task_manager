@@ -7,3 +7,10 @@
 #   ["Action", "Comedy", "Drama", "Horror"].each do |genre_name|
 #     MovieGenre.find_or_create_by!(name: genre_name)
 #   end
+
+Project.find_or_create_by!(name: "Project 1")
+Project.find_or_create_by!(name: "Project 2")
+
+Project.all.each do |project|
+  Task.create!(name: "New Task #{Time.now.strftime('%H:%M:%S')}", project:)
+end

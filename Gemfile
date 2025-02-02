@@ -43,3 +43,6 @@ end
 
 
 gem "graphql", "~> 2.4"
+gem "sidekiq"
+gem "sidekiq-cron"
+gem "rack-session"
