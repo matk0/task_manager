@@ -1,0 +1,32 @@
+{
+  "name": "task-manager",
+  "version": "1.0.0",
+  "main": "index.js",
+  "scripts": {
+    "build": "vite build",
+    "dev": "vite",
+    "format": "prettier --write \"src/**/*.{js,jsx}\"",
+    "lint": "eslint",
+    "preview": "vite preview"
+  },
+  "keywords": [],
+  "type": "module",
+  "author": "Matej Lukášik",
+  "license": "Apache-2.0",
+  "devDependencies": {
+    "@vitejs/plugin-react": "4.3.1",
+    "eslint": "9.9.1",
+    "eslint-config-prettier": "9.1.0",
+    "eslint-plugin-react": "7.37.1",
+    "globals": "15.9.0",
+    "prettier": "3.3.3",
+    "vite": "5.4.2"
+  },
+  "dependencies": {
+    "@apollo/client": "^3.12.8",
+    "graphql": "^16.10.0",
+    "react": "18.3.1",
+    "react-dom": "18.3.1",
+    "tailwindcss": "^4.0.3"
+  }
+}
