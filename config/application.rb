@@ -41,5 +41,7 @@ module TaskManager
     # Enable session middleware for Sidekiq Web UI
     config.middleware.use ActionDispatch::Cookies
     config.middleware.use ActionDispatch::Session::CookieStore, key: '_your_app_session'
+
+    config.action_cable.mount_path = '/cable'
   end
 end
