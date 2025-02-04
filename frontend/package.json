@@ -25,6 +25,7 @@
   "dependencies": {
     "@apollo/client": "^3.12.8",
     "@rails/actioncable": "^8.0.100",
+    "@tailwindcss/vite": "^4.0.3",
     "graphql": "^16.10.0",
     "graphql-ruby-client": "^1.14.5",
     "lodash": "^4.17.21",
