@@ -1,38 +1,15 @@
 import { createRoot } from "react-dom/client";
-import { ApolloProvider, gql, useQuery, useSubscription } from "@apollo/client";
+import { ApolloProvider, useQuery, useSubscription } from "@apollo/client";
 import { loadErrorMessages, loadDevMessages } from "@apollo/client/dev";
 import { useState, useEffect } from "react";
 import client from "./apolloClient";
+import { GET_PROJECTS } from "./queries";
+import { TASK_CREATED_SUBSCRIPTION } from "./subscriptions";
 
 if (import.meta.env.DEV) {
   loadDevMessages();
   loadErrorMessages();
 }
-
-const GET_PROJECTS = gql`
-  query GetProjects {
-    projects {
-      id
-      name
-      tasks {
-        id
-        name
-      }
-    }
-  }
-`;
-
-const TASK_CREATED_SUBSCRIPTION = gql`
-  subscription OnTaskCreated {
-    taskCreated {
-      task {
-        id
-        name
-        projectId
-      }
-    }
-  }
-`;
 
 const App = () => {
   const { loading, error, data } = useQuery(GET_PROJECTS);
@@ -71,14 +48,16 @@ const App = () => {
   if (error) return <p>Error: {error.message}</p>;
 
   return (
-    <div>
-      <h1 className="logo">Task Manager</h1>
+    <div className="container mx-auto p-4">
+      <h1 className="text-4xl font-bold mb-6 text-center">Task Manager</h1>
       {projects.map((project) => (
-        <div key={project.id}>
-          <h2>{project.name}</h2>
-          <ul>
+        <div key={project.id} className="mb-8 p-4 border rounded-lg shadow-lg">
+          <h2 className="text-2xl font-semibold mb-4">{project.name}</h2>
+          <ul className="list-disc list-inside">
             {project.tasks.map((task) => (
-              <li key={task.id}>{task.name}</li>
+              <li key={task.id} className="text-lg mb-2">
+                {task.name}
+              </li>
             ))}
           </ul>
         </div>
